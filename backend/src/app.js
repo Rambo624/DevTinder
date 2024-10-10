@@ -5,7 +5,7 @@ const dotenv=require("dotenv")
 dotenv.config()
 const userRoute=require("./Routes/userRoute")
 const uri = process.env.MONGO_URL;
-
+const cookieParser=require("cookie-parser")
 mongoose.connect(uri)
   .then(() => {
     console.log('Connected successfully to MongoDB with Mongoose');
@@ -19,4 +19,5 @@ mongoose.connect(uri)
   });
 
 app.use(express.json())
+app.use(cookieParser())
 app.use("/",userRoute)
