@@ -44,14 +44,19 @@ const Login=async(req,res)=>{
     }
 }
 
-const getUser=async(req,res)=>{
-    try {
-        const user= req.user
-        res.status(200).json({data:user})
-    } catch (error) {
-        console.log(error)
-    }
+
+
+
+
+const Logout=async (req,res)=>{
+
+  try {
+    res.clearCookie("token")
+    res.status(200).send("Logout Successfull")
+  } catch (error) {
+    console.log(error)
+  }
+ 
 }
 
-
-module.exports={Signup,getUser,Login}
+module.exports={Signup,Login,Logout}

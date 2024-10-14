@@ -32,6 +32,11 @@ password:{
     type:String,
     required:true,
     minlength: 8
+    
+},
+photo:{
+    type:String,
+    default:"https://static.vecteezy.com/system/resources/previews/036/594/092/original/man-empty-avatar-photo-placeholder-for-social-networks-resumes-forums-and-dating-sites-male-and-female-no-photo-images-for-unfilled-user-profile-free-vector.jpg"
 },
 age:{
     type:Number,
@@ -41,6 +46,13 @@ gender:{
     type:String,
     enum:["Male","Female"],
     
+},
+about:{
+    type:String,
+
+},
+skills:{
+    type:[String],
 }
 
 
