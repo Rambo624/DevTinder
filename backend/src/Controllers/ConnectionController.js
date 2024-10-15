@@ -49,6 +49,7 @@ const reviewRequest=async (req,res)=>{
         }
 
         const connectionRequest= await ConnectionRequestModel.findOne({To:user._id,_id:requestid,status:"Interested"})
+       
         if(!connectionRequest){
             return res.status(404).json({message:"No requests found"})   
         }
@@ -59,6 +60,7 @@ const reviewRequest=async (req,res)=>{
         return res.status(400).json({message:error.message})  
     }
 }
+
 
 
 module.exports={ConnectionRequest,reviewRequest}
