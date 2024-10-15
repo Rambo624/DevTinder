@@ -37,7 +37,7 @@ const Login=async(req,res)=>{
           }
           const token=await user.getJWT()
           res.cookie("token",token)
-          res.status(200).json({success:true,message:"Login Successful"})
+          res.status(200).json({success:true,message:"Login Successful",data:user})
 
     } catch (error) {
       res.status(400).json(error.message)
