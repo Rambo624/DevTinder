@@ -32,7 +32,7 @@ dispatch(addUser(response.data.data))
 }
 
   return (
-    <div className='flex justify-center'>
+    <div className='flex justify-center mb-10'>
         <div className="card bg-base-300 w-96 shadow-xl mt-9">
     
     <div className="card-body">

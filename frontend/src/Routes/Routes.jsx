@@ -3,7 +3,8 @@ import { createBrowserRouter,RouterProvider,} from "react-router-dom";
 import RootLayOut from '../Layout/RootLayOut';
 import Login from '../Pages/Login';
 import Signup from '../Pages/Signup';
-import Home from '../Pages/Home';
+import Profile from '../Pages/Profile';
+import Feed from '../Pages/Feed';
 
 
 
@@ -22,7 +23,11 @@ export const router= createBrowserRouter([
             },
             {
                 path:"/",
-                element:<Home/>
+                element:<Feed/>
+            },
+            {
+                path:"/profile",
+                element:<Profile/>
             },
         ]
       },

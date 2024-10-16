@@ -56,7 +56,7 @@ connectionRequest.forEach((key)=>{
     hideusersfeed.add(key.To.toString())
 })
 
-const users= await User.find({$and:[{_id:{$nin:Array.from(hideusersfeed)}},{_id:{$ne:user._id}}]}).select("firstname lastname").skip(skip).limit(limit)
+const users= await User.find({$and:[{_id:{$nin:Array.from(hideusersfeed)}},{_id:{$ne:user._id}}]}).select("firstname lastname photo age gender skills about").skip(skip).limit(limit)
 if(!users.length){
     return res.status(404).json({message:"No Users found"})
 }

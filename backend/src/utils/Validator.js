@@ -3,7 +3,7 @@ const User= require("../Models/userSchema")
 
 const validateEditProfile=  (req)=>{
 try {
-    const allowedUpdates=["firstname","lastname","about","skills","photo"]
+    const allowedUpdates=["firstname","lastname","about","age","gender","skills","photo"]
 
    const isEditAllowed= Object.keys(req.body).every(field=>allowedUpdates.includes(field))
  
