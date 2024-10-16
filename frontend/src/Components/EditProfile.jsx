@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useRef } from 'react'
 import useProfile from '../hooks/useProfile'
 import axiosInstance from '../utils/axios'
-function EditProfile({key,onProfileChange}) {
+function EditProfile() {
     const firstname = useRef()
     const lastname = useRef()
     const gender = useRef()
@@ -47,11 +47,11 @@ async function handleSave(){
                         <div className="label">
                             <span className="label-text">First Name</span>
                         </div>
-                        <input ref={firstname} type="text" defaultValue={user.firstname} placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+                        <input ref={firstname} type="text" defaultValue={user?.firstname} placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                         <div className="label">
                             <span className="label-text">Last Name</span>
                         </div>
-                        <input ref={lastname} type="text" defaultValue={user.lastname} placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+                        <input ref={lastname} type="text" defaultValue={user?.lastname} placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                         <div className="label">
                             <span className="label-text">About</span>
                         </div>
@@ -59,7 +59,7 @@ async function handleSave(){
                         <div className="label">
                             <span className="label-text">Age</span>
                         </div>
-                        <input ref={age} defaultValue={user.age} type="number" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+                        <input ref={age} defaultValue={user?.age} type="number" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                         <div className="label">
                             <span className="label-text">Skills</span>
                         </div>
@@ -67,7 +67,7 @@ async function handleSave(){
                         <div className="label">
                             <span className="label-text">Photo Url</span>
                         </div>
-                        <input ref={photo} defaultValue={user.photo} type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+                        <input ref={photo} defaultValue={user?.photo} type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                         <div className="label">
                             <span className="label-text">Gender</span>
                         </div>

@@ -5,6 +5,8 @@ import Login from '../Pages/Login';
 import Signup from '../Pages/Signup';
 import Profile from '../Pages/Profile';
 import Feed from '../Pages/Feed';
+import Requests from '../Pages/Requests';
+import Connections from '../Pages/Connections';
 
 
 
@@ -28,6 +30,14 @@ export const router= createBrowserRouter([
             {
                 path:"/profile",
                 element:<Profile/>
+            },
+            {
+                path:"/requests",
+                element:<Requests/>
+            },
+            {
+                path:"/connections",
+                element:<Connections/>
             },
         ]
       },

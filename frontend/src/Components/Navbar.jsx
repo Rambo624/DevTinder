@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 
 function Navbar() {
     const user=useSelector((store)=>store.user)
+  //  console.log(user,"user")
     const navigate=useNavigate()
     const dispatch=useDispatch()
 async function handleLogout(){
@@ -25,6 +26,7 @@ dispatch(removeUser())
 function handleProfile(){
     navigate("/profile")
 }
+
     return (
         <div>
             <div className="navbar bg-base-300">
@@ -40,7 +42,7 @@ function handleProfile(){
                             {user &&  <div className="w-10 rounded-full">
                                 <img
                                     alt="Tailwind CSS Navbar component"
-                                    src={user.photo}/>
+                                    src={user?.photo}/>
                             </div>}
                            
                         </div>
@@ -53,8 +55,9 @@ function handleProfile(){
                                     <span className="badge">New</span>
                                 </a>
                             </li>
-                            <li><a>Settings</a></li>
-                            <li className=' cursor-pointer' onClick={handleLogout}>Logout</li>
+                          <Link to={"/connections"}><li><a>Your Connections</a></li></Link>  
+                           <Link to={"/requests"}> <li><a>Requests</a></li></Link>
+                            <li className=' cursor-pointer' onClick={handleLogout}><a href="">Logout</a></li>
                         </ul>
                     </div>
                 </div>

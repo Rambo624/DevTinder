@@ -5,13 +5,18 @@ import useProfile from '../hooks/useProfile'
 function Profile() {
     const {user}=useProfile()
  
-    console.log(user)
+    //console.log(user)
 
    
   return (
-    <div className='flex justify-center gap-5'>
-        <EditProfile/>
-        <ProfileCard data={user}/>
+    <div className='flex items-center  justify-center gap-5'>
+      <div>
+      <EditProfile/>
+      </div>
+    <div className=''>
+    <ProfileCard data={user}/>
+      </div>   
+       
     </div>
   )
 }

@@ -4,24 +4,23 @@ import { useDispatch } from 'react-redux';
 import { addfeed } from '../utils/feedSlice';
 
 
-const useFeed= ()=>{
-    const dispatch=useDispatch()
-    const [feed, setFeed] = useState([]);
+const useConnections= ()=>{
+    const [connections, setConnections] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+const dispatch=useDispatch()
 
 
-
-    async function getFeed() {
+    async function getConnections() {
         try {
             const response = await axiosInstance({
                 method: 'GET',
-                url: '/user/feed?page=1&limit=5',
+                url: '/user/connections',
               });
            
           
-              setFeed(response.data.data);
-              dispatch(addfeed(response.data.data))
+              setConnections(response.data.data);
+dispatch(addfeed(response.data.data))
         } catch (error) {
             setError(error)
         }finally{
@@ -31,10 +30,10 @@ const useFeed= ()=>{
       }
 
       useEffect(()=>{
-        getFeed()
+        getConnections()
               },[])
-              return {feed,loading,error}
+              return {connections,loading,error}
         
 }
 
-export default useFeed
+export default useConnections

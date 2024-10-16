@@ -19,7 +19,7 @@ async function handleLogin(){
       password:password.current.value
     }
   const response=await axiosInstance({method:"POST",url:"/login",data:data})
-  console.log(response.data.data)
+ // console.log(response.data.data)
   if(response.status===200){
 dispatch(addUser(response.data.data))
     navigate("/")
