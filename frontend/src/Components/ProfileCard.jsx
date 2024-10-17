@@ -22,9 +22,9 @@ function ProfileCard({ data }) {
         url: `/request/send/${status}/${id}`,
       });
 
-      if (response.status === 200) {
+      
         dispatch(removeUserFromFeed(id));
-      }
+      
     } catch (error) {
       console.error('Failed to send review:', error);
     }
