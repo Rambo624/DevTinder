@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import { toast,Bounce } from 'react-toastify'
 import { useRef } from 'react'
 import axiosInstance from '../utils/axios'
 import { Link } from 'react-router-dom'
@@ -22,6 +23,17 @@ async function handleLogin(){
  // console.log(response.data.data)
   if(response.status===200){
 dispatch(addUser(response.data.data))
+toast.success('Login Successful!', {
+  position: "top-center",
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "light",
+  transition: Bounce,
+  });
     navigate("/")
   }
   } catch (error) {

@@ -3,6 +3,7 @@ import { useState,useRef } from 'react'
 import { Link } from 'react-router-dom'
 import axiosInstance from '../utils/axios'
 import { useNavigate } from 'react-router-dom'
+import { toast,Bounce } from 'react-toastify'
 function Signup() {
     const email=useRef()
     const password=useRef()
@@ -19,6 +20,17 @@ async function handleSignUp(){
     }
     const response = await axiosInstance({method:"POST",url:"/signup",data:data})
     if(response.status===200){
+      toast.success('Sign Up Successful!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+        });
       navigate("/login")
     }
   } catch (error) {
