@@ -57,7 +57,7 @@ function handleProfile(){
                             </li>
                           <Link to={"/connections"}><li><a>Your Connections</a></li></Link>  
                            <Link to={"/requests"}> <li><a>Requests</a></li></Link>
-                            <li className=' cursor-pointer' onClick={handleLogout}><a href="">Logout</a></li>
+                            <li className=' cursor-pointer ml-2' onClick={handleLogout}>Logout</li>
                         </ul>
                     </div>
                 </div>
