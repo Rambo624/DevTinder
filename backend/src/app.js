@@ -12,7 +12,7 @@ const cookieParser=require("cookie-parser")
 const cors=require("cors")
 
 const allowedOrigins = [
-  'http://localhost:5173',
+  'http://localhost:5173',"https://dev-tinder-frontend.vercel.app"
   
 
  
