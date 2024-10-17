@@ -36,7 +36,12 @@ const Login=async(req,res)=>{
         throw new Error("Invalid Credentials");
           }
           const token=await user.getJWT()
-          res.cookie("token",token)
+          res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,  // Cookie is sent over HTTPS only
+            sameSite: 'None',  // Allows cross-site cookie usage
+            maxAge: 24 * 60 * 60 * 1000 // 1 day expiration time
+        });
           res.status(200).json({success:true,message:"Login Successful",data:user})
 
     } catch (error) {
@@ -51,7 +56,12 @@ const Login=async(req,res)=>{
 const Logout=async (req,res)=>{
 
   try {
-    res.clearCookie("token")
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: true,  // Matches the `secure` flag when the cookie was set
+      sameSite: 'None',  // Matches the `sameSite` attribute when the cookie was set
+      path: '/', // Make sure to include the path if it was set when creating the cookie
+    });
     res.status(200).send("Logout Successfull")
   } catch (error) {
     console.log(error)
