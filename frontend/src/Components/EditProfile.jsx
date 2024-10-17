@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useRef } from 'react'
 import useProfile from '../hooks/useProfile'
 import axiosInstance from '../utils/axios'
+import { useDispatch } from 'react-redux'
 function EditProfile() {
     const firstname = useRef()
     const lastname = useRef()

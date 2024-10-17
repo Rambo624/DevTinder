@@ -16,7 +16,7 @@ const useFeed= ()=>{
         try {
             const response = await axiosInstance({
                 method: 'GET',
-                url: '/user/feed?page=1&limit=5',
+                url: '/user/feed',
               });
            
           

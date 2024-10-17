@@ -1,26 +1,38 @@
 import React from 'react'
 import useRequests from '../hooks/useRequests'
 import axiosInstance from '../utils/axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { removeRequest } from '../utils/connectionSlice'
 function Requests() {
     const {requests}=useRequests()
-console.log(requests)
+//console.log(requests)
+const Requests=useSelector((store)=>store.request)
+console.log(Requests,"Requests")
+const dispatch=useDispatch()
 
 
 async function handleReviewRequest(status,id){
   try {
+    console.log(id)
     const response= await axiosInstance({method:"POST",url:`/request/send/review/${status}/${id}`})
     if(response.status===200){
-
+dispatch(removeRequest(id))
     }
   } catch (error) {
     console.log(error)
   }
 }
+
+
+
+
+if(!Requests)return <h1>No New Requests</h1>
+if(!Requests.length) return <h1>No Requests</h1>
   return (
     <div className='   my-5'>
       
         <h1 className='text-2xl text-center '>Requests</h1>
-        {requests.map((request)=>(<>
+        {Requests.map((request)=>(<>
         <div className=' flex gap-3 justify-between bg-base-300 w-1/3 mt-5 items-center mx-auto '>
             <figure>
                 <img className='w-32' src={request.from.photo} alt="" />
