@@ -1,11 +1,31 @@
 import React from 'react'
 import { useState,useRef } from 'react'
 import { Link } from 'react-router-dom'
+import axiosInstance from '../utils/axios'
+import { useNavigate } from 'react-router-dom'
 function Signup() {
     const email=useRef()
     const password=useRef()
     const firstname=useRef()
     const lastname=useRef()
+const navigate=useNavigate()
+async function handleSignUp(){
+  try {
+    const data={
+      firstname:firstname.current.value,
+      lastname:lastname.current.value,
+      email:email.current.value,
+      password:password.current.value
+    }
+    const response = await axiosInstance({method:"POST",url:"/signup",data:data})
+    if(response.status===200){
+      navigate("/login")
+    }
+  } catch (error) {
+    console.log(error)
+  }
+}
+
     return (
         <div className='flex justify-center mb-10 '>
             <div className="card bg-base-300 w-96 shadow-xl mt-9">
@@ -21,7 +41,7 @@ function Signup() {
     <path
       d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
   </svg>
-  <input type="text" className="grow" placeholder="Firstname" />
+  <input ref={firstname} type="text" className="grow" placeholder="Firstname" />
 </label>
 <label className="input input-bordered flex items-center gap-2 mb-5">
   <svg
@@ -32,7 +52,7 @@ function Signup() {
     <path
       d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
   </svg>
-  <input type="text" className="grow" placeholder="Lastname" />
+  <input ref={lastname} type="text" className="grow" placeholder="Lastname" />
 </label>
     <label className="input input-bordered flex items-center gap-2 mb-5">
       <svg
@@ -63,7 +83,7 @@ function Signup() {
     </label>
          
           <div className="card-actions justify-center">
-            <button className="btn grow btn-primary">Sign In</button>
+            <button onClick={handleSignUp} className="btn grow btn-primary">Sign Up</button>
           </div>
           <Link to={"/login"}> <p>Already have an Account? <p className='text-blue-400'>Login</p></p></Link>
         </div>
