@@ -9,7 +9,7 @@ function ProfileCard({ data }) {
 
 
   const userId = user?._id || user?.data?._id;
-  console.log(userId, "user");
+ // console.log(userId, "user");
 
  
   const profileData = Array.isArray(data) ? data[0] : data;
@@ -33,27 +33,27 @@ function ProfileCard({ data }) {
   if (!user) return <h1>Loading...</h1>;
 
   return (
-    <div className="card bg-base-100 w-96 shadow-xl mt-10 my-10">
+    <div className="card bg-base-100 md:w-96 w-60 shadow-xl mt-10 my-10">
       <figure>
         <img src={profileData?.photo} alt="Profile" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">
+        <h2 className="md:card-title  text-small">
           {profileData?.firstname || ""} {profileData?.lastname || ""}
         </h2>
-        <p>{profileData?.about || ""}</p>
+        <p className='md:text-base text-small'>{profileData?.about || ""}</p>
         <div className="card-actions justify-center">
           {userId !== profileData?._id && (
             <>
               <button
                 onClick={() => handleReview('Interested', profileData._id)}
-                className="btn btn-primary"
+                className="md:btn bg-primary p-3 rounded-lg md:text-base text-xs btn-primary"
               >
                 Interested
               </button>
               <button
                 onClick={() => handleReview('Ignored', profileData._id)}
-                className="btn btn-secondary"
+                className="md:btn bg-secondary p-3 rounded-lg md:text-base text-xs btn-secondary"
               >
                 Ignore
               </button>

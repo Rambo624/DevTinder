@@ -8,7 +8,7 @@ function Feed() {
 
 const {feed,loading,error}=useFeed()
 const Feed=useSelector((store=>store.feed))
-console.log(feed,"feed")
+//console.log(feed,"feed")
 //console.log(feed)
 
 if(!Feed)return <h1 className='flex justify-center text-2xl my-10'>No new Users</h1>

@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <footer className="footer bg-base-300 text-base-content p-10">
+    <footer className="footer  bg-base-300 text-base-content p-10">
       <div className="container mx-auto grid grid-cols-3 gap-10">
         <nav>
           <h6 className="footer-title">Services</h6>

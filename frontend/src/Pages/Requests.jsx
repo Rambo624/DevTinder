@@ -33,16 +33,16 @@ if(!Requests.length) return <h1>No Requests</h1>
       
         <h1 className='text-2xl text-center '>Requests</h1>
         {Requests.map((request)=>(<>
-        <div className=' flex gap-3 justify-between bg-base-300 w-1/3 mt-5 items-center mx-auto '>
+        <div className=' flex gap-3 justify-between bg-base-300 w-2/3 p-3 rounded-lg md:w-1/3 mt-5 items-center mx-auto '>
             <figure>
-                <img className='w-32' src={request.from.photo} alt="" />
+                <img className='md:w-32 w-16 rounded-full' src={request.from.photo} alt="" />
             </figure>
             <div className='flex '>
-              <p>{`${request.from.firstname} ${request.from.lastname}`}</p>
+              <p className='md:text-base text-xs'>{`${request.from.firstname} ${request.from.lastname}`}</p>
             </div>
             <div className='flex flex-col gap-2'>
-              <button onClick={()=>handleReviewRequest("accepted",request.id)} className='btn btn-primary'>Accept</button>
-              <button onClick={()=>handleReviewRequest("rejected",request.id)} className='btn btn-secondary'>Reject</button>
+              <button onClick={()=>handleReviewRequest("accepted",request.id)} className='md:btn bg-primary text-black rounded-lg p-2 md:text-base text-xs md:btn-primary'>Accept</button>
+              <button onClick={()=>handleReviewRequest("rejected",request.id)} className='md:btn bg-secondary text-black rounded-lg p-2 md:text-base text-xs md:btn-primary'>Reject</button>
             </div>
         </div>
       </>))}

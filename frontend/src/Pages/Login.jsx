@@ -82,7 +82,7 @@ toast.success('Login Successful!', {
         <button onClick={handleLogin} className="btn grow btn-primary">Sign In</button>
       
       </div>
-      <Link to={"/signup"}> <p className='flex ml-7'>Dont have an Account? <p className='text-blue-400'>Sign Up</p></p></Link>
+      <Link to={"/signup"}> <h1 className='flex ml-7'>Dont have an Account? <h1 className='text-blue-400'>Sign Up</h1></h1></Link>
     </div>
   </div>
     </div>

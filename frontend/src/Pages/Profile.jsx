@@ -13,7 +13,7 @@ function Profile() {
       <div>
       <EditProfile/>
       </div>
-    <div className=''>
+    <div className='md:block hidden'>
     <ProfileCard data={user}/>
       </div>   
        

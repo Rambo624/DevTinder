@@ -19,17 +19,17 @@ async function handleReviewRequest(status,id){
   return (
     <div className='   my-5'>
       
-        <h1 className='text-2xl text-center '>Connections</h1>
+        <h1 className='md:text-2xl text-large text-center '>Connections</h1>
         {connections.map((connection)=>(<>
-        <div className=' flex gap-3  bg-base-300 w-1/3 mt-5  mx-auto '>
+        <div className=' flex md:gap-3 gap-5  bg-base-300 w-2/3 rounded-lg md:w-1/3 mt-5  mx-auto '>
             <figure>
-                <img className='w-32' src={connection.from?.photo||connection.To?.photo} alt="" />
+                <img className='md:w-32 w-16 rounded-full ' src={connection.from?.photo||connection.To?.photo} alt="" />
             </figure>
-            <div className='flex flex-col gap-2'>
-              <p>{`${connection.from?.firstname||connection.To?.firstname} ${connection.from?.lastname||connection.To?.lastname}`}</p>
-              <p>{connection.from?.age||connection.To?.age}</p>
-              <p>{connection.from?.about||connection.To?.about}</p>
-              <p>{connection.from?.skills||connection.To?.skills}</p>
+            <div className='flex flex-col md:gap-2'>
+              <p className='md:text-base text-xs'>{`${connection.from?.firstname||connection.To?.firstname} ${connection.from?.lastname||connection.To?.lastname}`}</p>
+              <p  className='md:text-base text-xs'>{connection.from?.age||connection.To?.age}</p>
+              <p  className='md:text-base text-xs'>{connection.from?.about||connection.To?.about}</p>
+              <p  className='md:text-base text-xs'>{connection.from?.skills||connection.To?.skills}</p>
             </div>
            
         </div>
