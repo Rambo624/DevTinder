@@ -17,7 +17,19 @@ const dispatch=useDispatch()
    // console.log(user)
 const [successmsg,setSuccessmsg]=useState("")
 async function handleSave(){
-    const data={
+    const formData = new FormData();
+        formData.append('firstname', firstname.current.value);
+        formData.append('about', about.current.value);
+        formData.append('lastname', lastname.current.value);
+        formData.append('gender', gender.current.value);
+        formData.append('age', age.current.value);
+        formData.append('skills', skills.current.value);
+    
+        
+        if (photo.current.files[0]) {
+            formData.append('photo', photo.current.files[0]);
+        }
+   /* const data={
         firstname:firstname.current.value,
         lastname:lastname.current.value,
         gender:gender.current.value,
@@ -26,17 +38,17 @@ async function handleSave(){
         about:about.current.value,
         photo:photo.current.value,
 
-    }
-    const response= await axiosInstance({method:"PATCH",url:"/profile/edit",data:data})
-    console.log(response)
+    }*/
+    const response= await axiosInstance({method:"PATCH",url:"/profile/edit",data:formData})
+    
    
     if(response.status===200){
         setSuccessmsg("Changes saved successfully")
-        dispatch(addUser(data))
+        dispatch(addUser(response.data.data))
         setTimeout(() => {
             setSuccessmsg("")
         }, 5000);
-        onProfileChange()
+   
     }
 }
 
@@ -70,7 +82,7 @@ async function handleSave(){
                         <div className="label">
                             <span className="md:label-text text-xs">Photo Url</span>
                         </div>
-                        <input ref={photo} defaultValue={user?.photo} type="text" placeholder="Type here" className="border border-gray-700 bg-transparent p-1 text-xs rounded-lg md:input md:input-bordered md:w-full md:max-w-xs" />
+                        <input ref={photo} defaultValue={user?.photo} type="file" placeholder="Type here" className="border border-gray-700 bg-transparent p-1 text-xs rounded-lg md:input md:input-bordered md:w-full md:max-w-xs" />
                         <div className="label">
                             <span className="md:label-text text-xs">Gender</span>
                         </div>

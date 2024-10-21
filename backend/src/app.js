@@ -10,7 +10,7 @@ const UserRouter=require("./Routes/UserRouter")
 const uri = process.env.MONGO_URL;
 const cookieParser=require("cookie-parser")
 const cors=require("cors")
-
+const multer  = require('multer')
 const allowedOrigins = [
   'http://localhost:5173',"https://dev-tinder-frontend.vercel.app"
   

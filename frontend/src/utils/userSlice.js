@@ -12,7 +12,11 @@ reducers:{
         return null
     }
 
-}
+},
+middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false, // Disable the serializable check for redux-persist actions
+    }),
 })
 
 export default userSlice.reducer
